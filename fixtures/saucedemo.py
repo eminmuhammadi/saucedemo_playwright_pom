@@ -20,6 +20,6 @@ def login_page(page, request) -> LoginPage:
 @pytest.fixture
 def products_page(page, login_page) -> ProductsPage:
     if login_page.check_error_message_exists():
-        raise AssertionError(f"Login failed for user '{login_page.username_input}' with error: {login_page.get_error_message()}")
+        raise AssertionError(f"Login failed for given user type")
     
     return ProductsPage(page)
