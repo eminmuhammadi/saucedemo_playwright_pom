@@ -26,7 +26,7 @@ def test_problem_users_should_be_able_to_see_products(products_page):
 @pytest.mark.tags("JIRA-0003", "ui", "auth")
 @pytest.mark.parametrize("login_page", ["locked_out_user"], indirect=True)
 def test_locked_out_users_should_not_be_able_to_see_products(login_page):
-    expect(login_page.error_message).to_have_text(CONSTANTS_AUTH_ERROR_LOCKED_OUT_MESSAGE)
+    expect(login_page.error_message_locator).to_have_text(CONSTANTS_AUTH_ERROR_LOCKED_OUT_MESSAGE)
 
 
 @pytest.mark.tags("JIRA-0004", "ui", "auth")

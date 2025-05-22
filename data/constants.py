@@ -8,6 +8,7 @@ CONSTANTS_USERS = {
     "performance_glitch_user": "secret_sauce",
     "error_user": "secret_sauce",
     "visual_user": "secret_sauce",
+    "standarat_user": "wrong",
 }
 CONSTANTS_START_URL = "https://www.saucedemo.com/"
 CONSTANTS_BASE_URL = "https://www.saucedemo.com"
