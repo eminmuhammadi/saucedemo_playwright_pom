@@ -10,7 +10,14 @@ from data.constants import *
 
 
 @pytest.mark.tags("JIRA-1001", "ui", "cart")
-@pytest.mark.parametrize("login_page", ["standard_user"], indirect=True)
+@pytest.mark.parametrize(
+    ("login_page", "cart_page"),               # Fixtures
+    [(
+        "standard_user",                       # User type
+        ["add-to-cart-sauce-labs-backpack"]    # Items in cart
+    )],
+    indirect=True
+)
 def test_standard_users_should_be_able_to_see_cart(cart_page):
     expect(cart_page.title_locator).to_have_text(CONSTANTS_CART_PAGE_TITLE)
     expect(cart_page.page).to_have_url(cart_page.url)

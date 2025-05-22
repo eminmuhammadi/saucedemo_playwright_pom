@@ -26,9 +26,14 @@ def products_page(page, login_page) -> ProductsPage:
     return ProductsPage(page)
 
 @pytest.fixture
-def cart_page(page, products_page) -> CartPage:
-    products_page.add_to_cart("add-to-cart-sauce-labs-backpack")
-    
+def cart_page(page, products_page, request) -> CartPage:
+    product_items = request.param
+    if not isinstance(product_items, list):
+        raise TypeError("Product items should be provided as a list")
+
+    for item in product_items:
+            products_page.add_to_cart(item)
+
     cart_page = CartPage(page)
     cart_page.goto()
 

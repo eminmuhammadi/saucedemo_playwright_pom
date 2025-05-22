@@ -4,6 +4,7 @@ __pycache__
 assets
 report.html
 traces/
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
