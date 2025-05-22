@@ -3,6 +3,7 @@ from data.constants import *
 from data.locators import *
 from pages.login_page import LoginPage
 from pages.products_page import ProductsPage
+from pages.cart_page import CartPage
 
 @pytest.fixture
 def login_page(page, request) -> LoginPage:
@@ -23,3 +24,12 @@ def products_page(page, login_page) -> ProductsPage:
         raise AssertionError(f"Login failed for given user type")
     
     return ProductsPage(page)
+
+@pytest.fixture
+def cart_page(page, products_page) -> CartPage:
+    products_page.add_to_cart("add-to-cart-sauce-labs-backpack")
+    
+    cart_page = CartPage(page)
+    cart_page.goto()
+
+    return cart_page
